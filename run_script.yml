@@ -1,0 +1,12 @@
+- name: Execute script on remote server
+  hosts: 142.132.188.168
+  become: yes
+  tasks:
+    - name: Ensure the script is present on the remote server
+      copy:
+        src: test.sh
+        dest: /tmp/test.sh
+        mode: "0755"
+
+    - name: Execute the script
+      command: /tmp/test.sh
